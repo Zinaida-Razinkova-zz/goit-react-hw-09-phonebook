@@ -1,0 +1,26 @@
+.labelName,
+.inputName {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  color: #333232;
+}
+.spanText {
+  margin-bottom: 10px;
+}
+
+.buttonAddContact {
+  border-radius: 4px;
+  padding: auto;
+
+  min-width: 100px;
+  height: 40px;
+  text-align: center;
+  border: 1px transparent;
+  color: #fff;
+  background-color: #043e52;
+  border: #043e52;
+
+  box-shadow: 0 4px 4px rgb(0 0 0 / 15%);
+  cursor: pointer;
+}

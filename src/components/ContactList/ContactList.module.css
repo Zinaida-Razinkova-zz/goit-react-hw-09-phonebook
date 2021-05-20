@@ -1,0 +1,32 @@
+.listContactList {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0px;
+}
+
+.listStyle {
+  list-style-type: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 700;
+  color: #043e52;
+}
+.buttonContactList {
+  border-radius: 4px;
+  padding: auto;
+
+  min-width: 70px;
+  height: 30px;
+  text-align: center;
+  border: 1px transparent;
+  color: #fff;
+  background-color: #043e52;
+  border: #043e52;
+
+  box-shadow: 0 4px 4px rgb(0 0 0 / 15%);
+  cursor: pointer;
+}
