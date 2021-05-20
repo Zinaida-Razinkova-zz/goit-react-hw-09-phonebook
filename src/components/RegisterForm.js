@@ -3,29 +3,24 @@ import { useDispatch } from "react-redux";
 import styles from "../App.module.css";
 import { authOperations } from "../redux/auth";
 
+const firstState = {
+  name: "",
+  email: "",
+  password: "",
+};
+
 export default function RegisterView() {
   const dispatch = useDispatch();
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    firstState,
+  });
+  const { name, email, password } = user;
 
   const handleChange = useCallback((event) => {
     const { name, value } = event.currentTarget;
 
-    switch (name) {
-      case "name":
-        return setName(value);
-
-      case "email":
-        return setEmail(value);
-
-      case "password":
-        return setPassword(value);
-
-      default:
-        return null;
-    }
+    setUser((prev) => ({ ...prev, [name]: value }));
   }, []);
 
   const handleSubmit = useCallback(
@@ -38,9 +33,7 @@ export default function RegisterView() {
   );
 
   const reset = () => {
-    setName("");
-    setEmail("");
-    setPassword("");
+    setUser(firstState);
   };
 
   return (

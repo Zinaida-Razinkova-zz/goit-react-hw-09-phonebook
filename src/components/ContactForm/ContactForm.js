@@ -3,24 +3,23 @@ import { useDispatch } from "react-redux";
 import styles from "./ContactForm.module.css";
 import operations from "../../redux/operations";
 
-export default function ContactForm() {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+const firstState = {
+  name: "",
+  number: "",
+};
 
+export default function ContactForm() {
   const dispatch = useDispatch();
+
+  const [user, setUser] = useState({
+    firstState,
+  });
+  const { name, number } = user;
 
   const handlChange = useCallback((event) => {
     const { name, value } = event.currentTarget;
-    switch (name) {
-      case "name":
-        return setName(value);
 
-      case "number":
-        return setNumber(value);
-
-      default:
-        return null;
-    }
+    setUser((prev) => ({ ...prev, [name]: value }));
   }, []);
 
   const handlSubmit = useCallback(
@@ -34,8 +33,7 @@ export default function ContactForm() {
   );
 
   const reset = () => {
-    setName("");
-    setNumber("");
+    setUser(firstState);
   };
 
   return (

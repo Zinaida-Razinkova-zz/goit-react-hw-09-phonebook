@@ -3,25 +3,24 @@ import { useDispatch } from "react-redux";
 import { authOperations } from "../redux/auth";
 import styles from "../App.module.css";
 
+const firstState = {
+  name: "",
+  email: "",
+  password: "",
+};
+
 export default function LoginView() {
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    firstState,
+  });
+  const { email, password } = user;
 
   const handleChange = useCallback((e) => {
     const { name, value } = e.currentTarget;
 
-    switch (name) {
-      case "email":
-        return setEmail(value);
-
-      case "password":
-        return setPassword(value);
-
-      default:
-        return console.warn(`Error`);
-    }
+    setUser((prev) => ({ ...prev, [name]: value }));
   }, []);
 
   const handleSubmit = useCallback(
@@ -34,8 +33,7 @@ export default function LoginView() {
   );
 
   const reset = () => {
-    setEmail("");
-    setPassword("");
+    setUser(firstState);
   };
 
   return (
